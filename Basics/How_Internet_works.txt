@@ -1,0 +1,92 @@
+
+// This is a note for things learned in how internet works
+
+Source: http://web.stanford.edu/class/msande91si/www-spr04/readings/week1/InternetWhitepaper.html
+
+Outline:
+1. What is internet
+2. IP
+3. Packets
+4. TCP
+5. DNS
+
+
+
+What is internet: 
+
+Internet is a network of networks
+
+Example hierarchy: Your computer -> LAN -> MAN (Collection of  LAN ) ->  WAN (Collection of Man)
+
+
+IP:
+
+Internet protcol. This is a address of a computer connected to a network. This is provided by ISP.
+
+
+TCP:
+
+TCP is Transmission control protcol. This defines the standard for communication between the networks.
+
+This will have the information like, Port address, Source and destintion IP address
+TCP make sure all the Packets of a single request is received. The receiver TCP will acknowledge if all the packets are successfully received.
+Sender TCP is the one need to make sure all the packets are successfully transferred.
+
+
+PORT:
+
+Each computer will have many number of ports and we need to know the port of the computer to post the data to correct listening application on that computer.
+
+
+Packets:
+
+The data is sent over the network as a Packets. Packets are chunks of data.  Data is represented as bits.
+
+Packet will have IP, TCP and Data details
+
+
+Data Transmission Modes: 
+
+Data is represented in bits and bits are carried over telephone lines or fiber cables or through wifi signals.
+
+
+DNS:
+
+Domain name service, Its a collection of servers that hold the mapping of IP to domain name. 
+
+Each ISP will have a base domain server. The requested domain will be searched in the base domain server.
+Lets assume Server A is a base domain and it does not have the requested domain mapping. Server A request for the other server (Server B) in its hierarchy.
+If server B also not have the mapping it request other domain servers till the domain mapping found. And the IP will be retured from the last domain server to the previous
+requested one and so .
+Eg: 
+
+Server A   (Not has the domain record so request other server) -> Server B (not have it) -> Server C (Has the record)
+
+Server C (send response) -> Server B -> Server A
+
+
+
+
+Hierarchy of Information sharing :
+
+Client                           
+Application Protocol: Http/SMTP   (Port)
+|
+TCP
+|
+IP
+|
+Hardware
+
+
+
+Sharing pacets over network:
+
+TCP and Routers are the key role players in packet sending and receiving.
+
+Routers will have the route table for Ips.
+The path to Source and destintion will not always be same. Routers will decide the path based on the traffic congestion of the route.
+
+A single data can be splitted to multiple packets based on its size. Each packet may not take the same path to reach destintion.
+So packets arriving will have time difference. TCP ensures the data consistency on sharing.
+
